@@ -1,6 +1,7 @@
 isn2014
 =======
 
-Je de Puissance Quatre
+Jeu de Puissance Quatre
 
 résumé à développer
+Jeu du puissance 4
