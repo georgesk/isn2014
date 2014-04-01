@@ -1,0 +1,34 @@
+styljeu.css
+@charset "windows-1252";
+ /*ici style des commandes html*/
+body {/* pour tout le document*/
+margin: 0; /* pour éviter les marges */
+font-family: arial,verdana,sans-serif; /* police d'écriture*/
+font-size: 14px; /* 100% de la police initiale de l'utilisateur*/
+line-height: 160%;
+color: #800000; /*couleur d'écriture bordeaux foncé*/
+}
+.titre {position:absolute; top:10px; left:120px; width:480px; text-align: center; color:#004000; font-size:22px;}
+.nom {position:absolute; top:10px; left:0px; width:480px; text-align: center; color:#004000; font-size:22px;}
+img { border:0; }/* images non entourées*/  
+a {    text-decoration: none; color:#004000;} /*pour les liens vert foncé*/
+a:hover {    color:red; background-color: transparent;}
+a.menu { display: block;  border-style:ridge; border-width:3px; font-size:16px; margin-top:10px; text-align: center; color:#dafaca; background-color:#660033; }
+a.menu:hover {color:#660033; background-color:#dafaca; }
+.icimenu { display: block;  border-style:ridge; border-width:3px; font-size:16px; margin-top:10px;  text-align: center; background-color:#dafaca; color:#660033; }/*indique la page affichée dans le menu*/
+.placemenu {position: absolute; width: 90px; top: 8%; left: 0.5%; } /*menu permanent*/   
+.sbulle
+{
+position:absolute;
+visibility:hidden;
+width:800px;
+background-color:#fffafa;
+color:#800000;
+padding:8px;
+border:2px solid #660033;
+font-family: arial,verdana,sans-serif;
+font-size: 14px;
+line-height: 25px;
+text-align:left;
+}
+#titjeu {text-align: center; font-size: 16px; font-weight: bold;}

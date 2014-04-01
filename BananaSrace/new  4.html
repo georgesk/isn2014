@@ -1,0 +1,396 @@
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Language" content="fr">
+<TITLE>Banana's race</TITLE> 
+<meta name="Description" content="Banana's race en javascript">
+<meta name="Keywords" content="Banana's race!">
+<meta name="Author" content="Audrey LavallÃ©e, OphÃ©lie Decuyper & Romain Place">
+<meta http-equiv="Content-Type"content="text/html; charset=iso-8859-1">
+<script type="text/javascript" src="avert.js"></script>
+<link rel="stylesheet" type="text/css" href="styljeu.css">
+<style type="text/css">   
+
+ body{color:#660033; font-size:18px;}
+.fond{position:absolute; top:10px;left:10px;}
+.signe {position:absolute; top:285px;left:370px;}
+.boitecadre1 {width:750px; height:524px; top:0px;left:0px;text-align:left; z-index:0;}
+.quoi{position:absolute; top:10px;left:10px;}
+.precharge{position:absolute; top:25px;left:25px;}
+.do2{position:absolute; top:610px;left:120px;}
+.do1{position:absolute; top:610px;left:165px;}
+.dj1{position:absolute; top:610px;left:620px;}
+.dj2{position:absolute; top:610px;left:665px;}
+.retour{position:absolute; top:595px;left:10px;}
+.jouer{position:absolute; top:595px;left:730px;}
+.btjr{position:absolute; top:600px;left:220px; width:320px; text-align:center;}
+.com{position:absolute; top:615px;left:215px;width:395px; text-align:center;font-size:18px; color:#660033;}
+.fondcause{position:absolute; top:595px;left:110px;}
+.b0{position:absolute; top:475px;left:27px;}.bb0{position:absolute; top:475px;left:27px;}
+.b1{position:absolute; top:475px;left:173px;}.bb1{position:absolute; top:475px;left:165px;}
+.b2{position:absolute; top:475px;left:310px;}.bb2{position:absolute; top:475px;left:310px;}
+.b3{position:absolute; top:475px;left:447px;}.bb3{position:absolute; top:475px;left:447px;}
+.b4{position:absolute; top:475px;left:584px;}.bb4{position:absolute; top:475px;left:585px;}
+.b5{position:absolute; top:370px;left:585px;}.bb5{position:absolute; top:370px;left:585px;}
+.b6{position:absolute; top:265px;left:585px;}.bb6{position:absolute; top:265px;left:585px;}
+.b7{position:absolute; top:160px;left:585px;}.bb7{position:absolute; top:160px;left:585px;}
+.b8{position:absolute; top:55px;left:585px;}.bb8{position:absolute; top:55px;left:585px;}
+.b9{position:absolute; top:55px;left:444px;}.bb9{position:absolute; top:55px;left:444px;}
+.b10{position:absolute; top:55px;left:305px;}.bb10{position:absolute; top:55px;left:305px;}
+.b11{position:absolute; top:55px;left:168px;}.bb11{position:absolute; top:55px;left:168px;}
+.b12{position:absolute; top:55px;left:27px;}.bb12{position:absolute; top:55px;left:27px;}
+.b13{position:absolute; top:162px;left:27px;}.bb13{position:absolute; top:162px;left:27px;}
+.b14{position:absolute; top:266px;left:27px;}.bb14{position:absolute; top:266px;left:27px;}
+.b15{position:absolute; top:372px;left:27px;}.bb15{position:absolute; top:370px;left:27px;}
+.b16{position:absolute; top:372px;left:168px;}.bb16{position:absolute; top:370px;left:171px;}   
+.b17{position:absolute; top:371px;left:311px;}.bb17{position:absolute; top:370px;left:309px;}
+.b18{position:absolute; top:371px;left:443px;}.bb18{position:absolute; top:371px;left:443px;}
+.b19{position:absolute; top:265px;left:443px;}.bb19{position:absolute; top:265px;left:443px;}
+.b20{position:absolute; top:162px;left:447px;}.bb20{position:absolute; top:162px;left:447px;}
+.b21{position:absolute; top:164px;left:304px;}.bb21{position:absolute; top:164px;left:304px;}   
+.b22{position:absolute; top:164px;left:170px;}.bb22{position:absolute; top:164px;left:170px;}
+.b23{position:absolute; top:261px;left:169px;}.bb23{position:absolute; top:264px;left:170px;}
+.b24{position:absolute; top:261px;left:307px;}.bb24{position:absolute; top:263px;left:308px;}
+</style>
+<script type="text/javascript">
+<!--
+var compteur=0; var point; var pos=0; var d; var x; var pos_jr=0; var pos_pc=0; var ou;
+var rouge=new Array(7);rouge[0]=5;rouge[1]=11;rouge[2]=23;rouge[3]=34;rouge[4]=41;rouge[5]=45;rouge[6]=54;
+var lancede= '<input type="image" src="lancer.png" onclick="tournede()">';
+var dit = "Jeu de l'Oie.";
+var oie=0; var stop=0; var douze=0; var quinze=0; var dixneuf=0; var trenteun=0; var trentneuf=0; var quarantdeux=0; var cinquantdeux=0; var cinquantsix=0; var vite_jr=0; var vite_pc=0;
+var nom = Array("DÃ©part","Escargot","Tortue","DÃ©passement","Libellule","Oie","Tremplin","Coq","Grenouille","Castor","LiÃ¨vre","Oie","FusÃ©e","VipÃ¨re","Mouche","Impasse","&OElig;illet","Mourron bleu","Scabieuse","HÃ´tel","Potentille","Garage","Sedum","Oie","Colchique","Perce-neige","DÃ©s","Eglantine","Pomme","Poire","Prune","Tobogan","Melon","ChÃ¢taigne","Oie","Raisin","Cerises","Banane","Orange","DÃ©viation","F. de chÃªne","Oie","DÃ©dale","F. d'Ã©rable","F. de marronnier","Oie","F. de ginkgo","F. de chÃ¢taignier","Prunus","Bouleau","FrÃªne","EpicÃ©a","Accident","CÃ¨dre","Oie","Saule pleureur","CimetiÃ¨re","Peuplier d'Italie","Sorbier","Palmier","Victoire");
+var lesoies = Array(23,34,41);
+//========================
+function tirausort(){
+for (i=0;i<=60;i++){a = document.getElementById('bb'+i);a.innerHTML = '';}
+a=document.getElementById('signe'); a.innerHTML ='';
+aqui = Math.floor(Math.random()*2+1);
+if (aqui==1){d="j"; x="red";
+dit="Vous commencez, lancez vos dÃ©s.";affichecom();
+a = document.getElementById('jouer'); a.innerHTML= '<input type="image" src="lancer.png" onclick="tournede()">';
+a = document.getElementById('bb0'); a.innerHTML =
+'<img src = "joueursrt.png " >';
+}
+if (aqui==2){d="o"; x="blue";
+dit="Je commence. Je lance mes dÃ©s"; affichecom();
+a = document.getElementById('bb0'); a.innerHTML = '<img src = "ordisrt.png" >';
+setTimeout('tournede()',1000);
+}
+}
+//==========================
+function affichecom(){
+a = document.getElementById('com'); a.innerHTML =dit;
+}
+//=========================
+function tournede(){
+var a = document.getElementById('jouer'); a.innerHTML= '';
+if (aqui==2){document.images['dj1'].src='de0j.png'; document.images['dj2'].src='de0j.png';}
+if (aqui==1){document.images['do1'].src='de0o.png'; document.images['do2'].src='de0o.png';}
+dit=""; affichecom();
+var tr = Math.floor(Math.random()*12+6);
+    if (compteur<tr){montrede(); compteur++; setTimeout('tournede()',150);}
+   
+    else {compteur=0; montrede();  point=d1+d2;
+    //point=6;//hypothÃ¨se           
+    if ((aqui==1)&&(pos_jr+point<61)){
+        x= pos_jr+point;
+        dit=pos+" + "+point+" : allez Ã  la case "+x+"  ("+nom[x]+")";
+        affichecom();   
+    }
+    if ((aqui==1)&&(pos_jr+point>60)){
+        x=    60-(pos_jr+point-60);
+        dit=pos+" + "+point+" : reculez Ã  la case "+x+"  ("+nom[x]+")";
+         affichecom();}
+    if ((aqui==2)&&(pos_pc+point<61)){
+        x= pos_pc+point;
+        dit=pos+" + "+point+" : je vais Ã  la case "+x+"  ("+nom[x]+")";
+        affichecom();}
+    if ((aqui==2)&&(pos_pc+point>60)){
+        x=    60-(pos_pc+point-60);
+        dit=pos+" + "+point+" : je recule Ã  la case "+x+"  ("+nom[x]+")";
+         affichecom();
+        }
+    setTimeout('avance()',2000);}                          
+}
+//====================
+function montrede(){
+d1=Math.floor(Math.random()*6+1); d2=Math.floor(Math.random()*6+1);
+document.images['d'+d+'1'].src='de'+(d1)+d+'.png'; document.images['d'+d+'2'].src='de'+(d2)+d+'.png';
+}
+//===================
+function avance(){
+if (pos==60){
+ex_pos=60;
+pos=59;
+recule(); return;}
+if (aqui==1){
+a = document.getElementById('bb'+(pos+1)); a.innerHTML = '<img src =joueur.png>';
+a = document.getElementById('bb'+pos); a.innerHTML = '';
+
+if (pos==pos_pc){a = document.getElementById('bb'+pos_pc); a.innerHTML = '<img src = "ordi.png">';}
+}
+if (aqui==2){
+a = document.getElementById('bb'+(pos+1)); a.innerHTML = '<img src =ordi.png>';
+a = document.getElementById('bb'+pos); a.innerHTML = '';
+
+if (pos==pos_jr){a = document.getElementById('bb'+pos_jr); a.innerHTML = '<img src = "joueur.png">';}
+}
+setTimeout('attente()',200);
+}
+//=====================
+function recule(){
+var a = document.getElementById('bb'+ex_pos); a.innerHTML = '';
+if (aqui==1){
+a = document.getElementById('bb'+pos); a.innerHTML = '<img src = "joueur.png">'; }
+if (aqui==2){
+a = document.getElementById('bb'+pos); a.innerHTML = '<img src = "ordi.png">'; }
+if ((aqui==1)&&(pos==pos_pc-1)){a = document.getElementById('bb'+pos_pc); a.innerHTML = '<img src = "ordi.png">';}
+if ((aqui==2)&&(pos==pos_jr-1)){a = document.getElementById('bb'+pos_jr); a.innerHTML = '<img src = "joueur.png">'; }
+setTimeout('attente_ar()',150);
+}
+//====================================================================
+function attente_ar(){
+//--------------------
+if ((aqui==1)&&(douze==1)&&(pos==9)){pos_jr=9; douze=0;intelligence(); return;}
+if ((aqui==2)&&(douze==1)&&(pos==9)){pos_pc=9; douze=0; intelligence(); return;}
+if ((aqui==1)&&(stop==1)){pos_jr=pos; stop=0; intelligence(); return;}
+if ((aqui==2)&&(stop==1)){pos_pc=pos; stop=0; intelligence(); return;}
+//--------------------
+if ((aqui==1)&&(pos==60-(pos_jr+(point-60)))){pos_jr=pos; intelligence(); return;}
+if ((aqui==2)&&(pos==60-(pos_pc+(point-60)))){pos_pc=pos; intelligence(); return;}
+//--------------------impasse
+if ((aqui==1)&&(quinze=1)&&(pos==9)){pos_jr=9; quinze=0; intelligence(); return;}
+if ((aqui==2)&&(quinze=1)&&(pos==9)){pos_pc=9; quinze=0; intelligence(); return;}
+//--------------------hÃ´tel
+if ((aqui==1)&&(dixneuf=1)&&(pos==18)){if (pos_pc==18){pos_jr=17; quinze=0; intelligence(); return;}; if (pos_pc!=18){pos_jr=18; quinze=0; intelligence(); return;}}
+if ((aqui==2)&&(dixneuf=1)&&(pos==18)){if (pos_jr==18){pos_pc=17; quinze=0; intelligence(); return;}; if (pos_jr!=18){pos_pc=18; quinze=0; intelligence(); return;}}
+//--------------------tobogan
+if ((aqui==1)&&(trenteun==1)&&(pos==pos_jr-point)){ pos_jr=pos; trenteun=0; intelligence(); return;}
+if ((aqui==2)&&(trenteun==1)&&(pos==pos_pc-point)){ pos_pc=pos; trenteun=0; intelligence(); return;}
+//--------------------dÃ©viation
+if ((aqui==1)&&(trentneuf==1)&&(pos==pos_jr-point)){pos_jr=pos; trentneuf=0; intelligence(); return;}
+if ((aqui==2)&&(trentneuf==1)&&(pos==pos_pc-point)){pos_pc=pos; trentneuf=0; intelligence(); return;}
+//--------------------labyrinthe
+if ((aqui==1)&&(quarantdeux==1)&&(pos==lesoies[ou])){pos_jr=lesoies[ou]; quarantdeux=0;intelligence(); return;}
+if ((aqui==2)&&(quarantdeux==1)&&(pos==lesoies[ou])){pos_pc=lesoies[ou]; quarantdeux=0; intelligence(); return;}
+//--------------------accident
+if ((aqui==1)&&(cinquantdeux==1)&&(pos==21)){pos_jr=21; cinquantdeux=0; intelligence(); return;}
+if ((aqui==2)&&(cinquantdeux==1)&&(pos==21)){pos_pc=21; cinquantdeux=0; intelligence(); return;}
+//--------------------
+else {
+pos--; ex_pos-- ; recule();}
+}
+//=====================
+function attente(){
+pos++;
+if ((aqui==1)&&(pos==pos_jr+point)){pos_jr=pos; intelligence(); return;}
+if ((aqui==2)&&(pos==pos_pc+point)){pos_pc=pos; intelligence(); return;}   
+avance();
+}
+//=====================
+function changetout(){
+
+if (aqui==1){
+
+if (pos_pc==0){a = document.getElementById('bb0'); a.innerHTML = '<img src =ordisrt.png>';}
+aqui=2; dit='A moi.'; affichecom();
+d="o"; x="blue"; pos=pos_pc;
+setTimeout('tournede()',2000);
+}
+else {
+if (pos_jr==0){a = document.getElementById('bb0'); a.innerHTML = '<img src =joueursrt.png>';}
+aqui=1;a = document.getElementById('jouer'); a.innerHTML= lancede;
+dit='A vous.'; affichecom();
+d="j"; x="red"; pos=pos_jr;
+}
+}
+//=====================
+function victoire(){
+for (i=0;i<=60;i++){
+    if (aqui==1){a = document.getElementById('bb'+i);a.innerHTML = '<img src="joueursrt.png">';}
+    if (aqui==2){a = document.getElementById('bb'+i);a.innerHTML = '<img src="ordisrt.png">';}
+    }
+}
+//=====================
+function intelligence(){
+//une OIE-----------------------------------
+    for (i=0;i<=6;i++){if ((pos_pc)==rouge[i]){dit="Une Oie : je rejoue !";affichecom();  vite_pc=1; setTimeout('tournede()',3000);  return;}}
+    for (i=0;i<=6;i++){if ((pos_jr)==rouge[i]){dit="Une Oie : vous rejouez !";affichecom();   a = document.getElementById('jouer'); a.innerHTML=lancede; aqui=1; vite_jr=1; return;}}   
+//victoire------------------------------
+if (pos_pc==60){ dit="Votre ordinateur a gagnÃ© !";affichecom(); a = document.getElementById('jouer'); a.innerHTML = '<input type="image" src="rejouer.png" onclick="location.reload()">';alert("Qui est le meilleur ?");    setTimeout('victoire()',1000); return;}
+if (pos_jr==60){
+dit="bravo vous avez GAGNE !";affichecom(); a = document.getElementById('jouer'); a.innerHTML = '<input type="image" src="rejouer.png" onclick="location.reload()">';alert("Ce jeu est bÃªte comme une oie !"+"\n"+"MÃªme un humain peut gagner !");setTimeout('victoire()',1000); return;}
+//mÃªme place-------------------------------------
+if ((aqui==1)&&(pos==pos_pc)){ dit=pos+" : place occupÃ©e, restez derriÃ¨re !";affichecom(); pos=pos_jr-1; ex_pos=pos; stop=1;  setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos==pos_jr)){  dit=pos+" : place prise, je reste derriÃ¨re !";affichecom();  pos=pos_pc-1; ex_pos=pos; stop=1;  setTimeout('recule()',2000); return;}
+//case numÃ©ro 3-------------------------------
+if ((aqui==1)&&(pos_jr==3)&&(pos_pc>3)){dit=" 3 : vous passez devant moi !";affichecom();
+point=pos_pc-pos_jr+1; setTimeout('avance()',2000); return;}
+if ((aqui==2)&&(pos_pc==3)&&(pos_jr>3)){dit=" 3 : je passe devant vous !";affichecom();
+point=pos_jr-pos_pc+1; setTimeout('avance()',2000); return;}
+//case numÃ©ro 6-------------------------------
+point = Math.floor(Math.random()*24+1);
+var z =6+point;
+if ((aqui==1)&&(pos_jr==6)){dit="6 : le tremplin vous envoie au "+z+" ("+nom[z]+")";affichecom();
+vite_jr=1; setTimeout('avance()',2000); return;}
+if ((aqui==2)&&(pos_pc==6)){dit="6 : le tremplin m'expÃ©die au "+z+" ("+nom[z]+")";affichecom();
+ vite_pc=1; setTimeout('avance()',2000); return;}
+//case numÃ©ro 12-------------------------------
+if ((aqui==1)&&(pos_jr==12)&&(vite_jr==0)){dit="Direct Ã  la FusÃ©e : reculez au Castor !";affichecom();
+pos=11; ex_pos=12; douze=1; vite_jr=1; setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==12)&&(vite_pc==0)){dit="Direct Ã  la FusÃ©e :  je recule au Castor !";affichecom();
+pos=11; ex_pos=12; douze=1; vite_pc=1; setTimeout('recule()',2000); return;}
+//case numÃ©ro 15-------------------------------
+if ((aqui==1)&&(pos_jr==15)){dit=" 15 : impasse, repartez au Castor !";affichecom();
+pos=14; ex_pos=15; quinze=1; setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==15)){dit=" 15 : impasse, je reviens au Castor !";affichecom();
+pos=14; ex_pos=15; quinze=1; setTimeout('recule()',2000); return;}
+//case numÃ©ro 19-------------------------------
+if ((aqui==1)&&(pos_jr==19)&&(pos_pc!=18)){ dit=" 19 : HÃ´tel plein, vous reculez !";affichecom();
+pos=18; ex_pos=19; dixneuf=1; setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==19)&&(pos_jr!=18)){ dit=" 19 : HÃ´tel plein, je recule !";affichecom();
+pos=18; ex_pos=19; dixneuf=1; setTimeout('recule()',2000); return;}
+//case numÃ©ro 26-------------------------------
+if ((aqui==1)&&(pos_jr==26)&&((d1==6)||(d2==6))){ dit=" 26 avec un dÃ© 6 : allez aux Cerises!"; affichecom();
+ point=10; setTimeout('avance()',2000); return;}
+if ((aqui==2)&&(pos_pc==26)&&((d1==6)||(d2==6))){ dit=" 26 avec un dÃ© 6 : je vais aux Cerises !"; affichecom();
+ point=10; setTimeout('avance()',2000); return;}
+//case numÃ©ro 31-------------------------------Ã  corriger
+point = Math.floor(Math.random()*13+1);
+var z =6+point;
+
+if ((aqui==1)&&(pos_jr==31)){ dit=" 31 : Tobogan : glissade arriÃ¨re "+point+"  cases !"; affichecom();
+pos=30; ex_pos=31; trenteun=1;setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==31)){ dit=" 31 : Tobogan, je glisse en arriÃ¨re "+point+"  cases !"; affichecom();
+pos=30; ex_pos=31; trenteun=1; setTimeout('recule()',2000); return;}
+//case numÃ©ro 39-------------------------------
+   
+point = Math.floor(Math.random()*12+2);
+if ((aqui==1)&&(pos_jr==39)){dit=" 39 : dÃ©viation qui vous retarde de "+point+" cases !";affichecom();
+pos=38; ex_pos=39; trentneuf=1; setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==39)){dit=" 39 : dÃ©viation, je recule de "+point+" cases !";affichecom();
+pos=38; ex_pos=39; trentneuf=1; setTimeout('recule()',2000); return;}
+
+
+//case numÃ©ro 42-------------------------------
+ou =  Math.floor(Math.random()*3);
+if ((aqui==1)&&(pos_jr==42)){dit=" 42 : le DÃ©dale dÃ©bouche au "+lesoies[ou]+" !";affichecom();
+pos=41; ex_pos=42; quarantdeux=1; setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==42)){dit=" 42 : le DÃ©dale dÃ©bouche au "+lesoies[ou]+" !";affichecom();
+pos=41; ex_pos=42; quarantdeux=1; setTimeout('recule()',2000); return;}
+//case numÃ©ro 52-------------------------------
+if ((aqui==1)&&(pos_jr==52)){dit=" 52 : Accident : allez au Garage !";affichecom();
+pos=51; ex_pos=52; cinquantdeux=1;  setTimeout('recule()',2000); return;}
+if ((aqui==2)&&(pos_pc==52)){dit=" 52 : Accident : je vais au Garage !";affichecom();
+pos=51; ex_pos=52; cinquantdeux=1;  setTimeout('recule()',2000); return;}
+//case numÃ©ro 56-------------------------------
+if ((aqui==1)&&(pos_jr==56)){dit='56 : CimetiÃ¨re ! '+'<img src="mort.png">'+' Recommencez !'; affichecom();
+setTimeout('mortjr()',2000);
+return;}
+if ((aqui==2)&&(pos_pc==56)){dit='56 : CimetiÃ¨re ! '+'<img src="mort.png">'+' Je recommence !'; affichecom();
+setTimeout('mortpc()',2000);
+return;}
+//dans tous les autres cas-------------------
+else {
+if (aqui==1){vite_jr++;}
+if (aqui==2){vite_pc++;}
+setTimeout('changetout()',1500)    ;
+}
+}
+//-------------------
+function mortjr(){
+a = document.getElementById('bb0'); a.innerHTML = '<img src = "joueurpl.png">' ;
+a = document.getElementById('bb56'); a.innerHTML = '';
+pos_jr=0; vite_jr=0; setTimeout('changetout()',3000);
+}
+//--------------------
+function mortpc(){
+a = document.getElementById('bb0'); a.innerHTML = '<img src = "ordipl.png">';
+a = document.getElementById('bb56'); a.innerHTML = '';
+pos_pc=0; vite_pc=0; setTimeout('changetout()',3000);
+}
+//--------------------
+function partir()
+{
+window.parent.location.href="../jeux.htm";
+}
+//-->
+</script>
+</head>
+<body id="bd" onload="changecoul()">
+<div class="sbulle" id="ex1" style="width: 850px;background-color: yellow;text-align: left"><b><div style="text-align: center">Le jeu de l'oie</div></b><br><u>But du jeu</u> : arriver avant l'ordinateur Ã  la case gagné.<br>
+Votre position est matÃ©rialisÃ©e par un pion rouge <img src = "pionrouge.png"> et vos dÃ©s sont roses  <img src="de0j.png"><br>
+La position de l'ordinateur est marquÃ©e d'un cercle bleu <img src = "rdb.png"> et ses dÃ©s sont bleu pÃ¢le  <img src="de0o.png"><br><br>
+<u>Pour commencer</u>, Cliquez sur le bouton Jouer : un tirage au sort  a lieu. Suivez ensuite les
+commentaires en bas de l'Ã©cran qui vous permettent de suivre les pÃ©ripÃ©ties du jeu.<br>
+Quand arrive votre tour, cliquez sur le bouton rose "Lancer". Le total des points de vos dÃ©s vous fait avancer du mÃªme nombre de cases, MAIS : <br>
+Il ne peut y avoir qu'un joueur par case : si vous arrivez sur la place occupÃ©e par l'ordinateur, vous reculez d'un numÃ©ro ( et inversement !)<br>
+<br>
+<u>Pour gagner</u>, il faut arriver "pile" sur la case gagné, si votre total de points dÃ©passe la case, vous continuez le coup en reculant.<br><br>
+<br><font color="green"><i>Ce jeu Ã  Ã©tÃ© conÃ§u et rÃ©alisÃ© par Audrey lavallée ophélie Decuyper et Romain place.</i></font>
+</div>
+<div class="fond"><img src="chem1.png"></div>
+<div class="quoi"><a href="#" onmouseover="bullepop('ex1',event)" onmouseout="couic()" onclick="return false"><img src="quoi.png"></a></div>
+<div class="fondcause"  id="fc"><img src="fondcause.png"></div>
+<div class="signe" id="signe"><img src="../sign.png"></div>
+<form>
+<div class="com"  id="com">SUPER JEU DE L'OIE</div>
+<div class="do1" id="do1"><img src="de0o.png" name="do1"></div>
+<div class="do2" id="do2"><img src="de0o.png" name="do2"></div>
+<div class="dj1" id="dj1"><img src="de0j.png" name="dj1"></div>
+<div class="dj2" id="dj2"><img src="de0j.png" name="dj2"></div>
+<div class="retour"><img src="retour.png" onclick="partir()"></div>
+<div class="jouer" id="jouer"><img src="jouer.png" onclick="tirausort()"></div>     
+<div class="b0" id="b0" title="DÃ©part"><img src="im_0.png"></div>
+<div class="bb0" id="bb0"></div>
+<div class="b1" id="b1" title="banane1"><img src="banane1.png"></div>
+<div class="bb1" id="bb1"></div>
+<div class="b2" id="b2" title="banane2"><img src="banane2.png"></div>
+<div class="bb2" id="bb2"></div>
+<div class="b3" id="b3" title="banane3"><img src="banane3.png"></div>
+<div class="bb3" id="bb3"></div>
+<div class="b4" id="b4" title="banane4"><img src="banane4.png"></div>
+<div class="bb4" id="bb4"></div>
+<div class="b5" id="b5" title="banane5"><img src="banane5.png"></div>
+<div class="bb5" id="bb5"></div>
+<div class="b6" id="b6" title="avancede3cases"><img src="banane6.png"></div>
+<div class="bb6" id="bb6"></div>
+<div class="b7" id="b7" title="banane7"><img src="banane7.png"></div>
+<div class="bb7" id="bb7"></div>
+<div class="b8" id="b8" title="banane8"><img src="banane8.png"></div>
+<div class="bb8" id="bb8"></div>
+<div class="b9" id="b9" title="banane9"><img src="banane9.png"></div>
+<div class="bb9" id="bb9"></div>
+<div class="b10" id="b10" title="banane10"><img src="banane10.png"></div>
+<div class="bb10" id="bb10"></div>
+<div class="b11" id="b11" title="banane11"><img src="banane11.png"></div>
+<div class="bb11" id="bb11"></div>
+<div class="b12" id="b12" title="banane12"><img src="banane12.png"></div>
+<div class="bb12" id="bb12"></div>
+<div class="b13" id="b13" title="banane13"><img src="banane13.png"></div>
+<div class="bb13" id="bb13"></div>
+<div class="b14" id="b14" title="rejoue"><img src="banane14.png"></div>
+<div class="bb14" id="bb14"></div>
+<div class="b15" id="b15" title="banane15"><img src="banane15.png"></div>
+<div class="bb15" id="bb15"></div>
+<div class="b16" id="b16" title="banane16"><img src="banane16.png"></div>
+<div class="bb16" id="bb16"></div>
+<div class="b17" id="b17" title="banane17"><img src="banane17.png"></div>
+<div class="bb17" id="bb17"></div>
+<div class="b18" id="b18" title="banane18"><img src="banane18.png"></div>
+<div class="bb18" id="bb18"></div>
+<div class="b19" id="b19" title="banane19"><img src="banane19.png"></div>
+<div class="bb19" id="bb19"></div>
+<div class="b20" id="b20" title="banane20"><img src="banane20.png"></div>
+<div class="bb20" id="bb20"></div>
+<div class="b21" id="b21" title="banane21"><img src="banane21.png"></div>
+<div class="bb21" id="bb21"></div>
+<div class="b22" id="b22" title="reculede3cases"><img src="banane22.png"></div>
+<div class="bb22" id="bb22"></div>
+<div class="b23" id="b23" title="banane23"><img src="banane23.png"></div>
+<div class="bb23" id="bb23"></div>
+<div class="b24" id="b24" title="gagné"><img src="banane24.png"></div>
+<div class="bb24" id="bb24"></div>
+</form>
+</body>
+</html>
