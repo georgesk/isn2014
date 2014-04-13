@@ -34,12 +34,34 @@ function Rand(){
 }
 }
 
+var secund = false;
+var first;
 function hh(a){
-    $(a).attr('src', 'hh.png');  //changer image de la case a
-    setTimeout(         //timer de 300ms avant retour à l'image de départ
-		function(){
-			$(a).attr('src', 'img.png');   //image de départ revenu
-		}, 
-		300
-	);
+    if (secund==true){   //test si premier ou deuxieme clic
+        $(a).attr('src', 'hh.png');    //changer image de la case a
+        secund=false;
+        setTimeout(   //timer de 500 ms
+            function(){     //remise à zero des images
+                $(first).attr('src', 'img.png');
+                $(a).attr('src', 'img.png');
+            }, 
+            500
+        );
+    }
+    else{
+        first="#";
+        $(a).attr('src', '1.png');      //debut d'une suite de modifications avec timer = animations 
+        setTimeout(
+            function(){$(a).attr('src', '2.png')},200
+            );
+        setTimeout(
+            function(){$(a).attr('src', '3.png')},200
+            );
+        setTimeout(
+            function(){$(a).attr('src', 'hh.png')},200
+            );
+        first = first +  $(a).attr('id');   //enregistrement id de la premiere case cliquee
+        secund=true;
+    }
+
 }
