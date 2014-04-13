@@ -1,5 +1,5 @@
 
-body {
+body { /* fond de page */
 color:black;
 background-color: lightgrey;
 background-repeat:no-repeat;
@@ -9,14 +9,15 @@ background-attachment:fixed;
 width: auto;
 margin: auto;
 }
-.titre {
+.titre { /* titre */
   border-bottom: solid black 5px;
   border-top: solid white 20px;
   margin-left: -40px;
   margin-right: -40px;
   box-shadow: 15px 20px 10px lightgrey;
+  text-shadow: 5px 5px 5px lightgrey;
 }
-.fixe{
+.fixe{ /* index du coin gauche */
   position: fixed;
   left: 10px;
   width: 200px;
@@ -26,12 +27,12 @@ margin: auto;
   margin-top: 500px;
   background-color:lightgrey;
 }
-.sommaire {
+.sommaire { /* sommaire */
   position: relative;
   top: -55px;
 }
 
-.center{
+.center{ /* encadre les données principales de la page */
  margin-right: 245px;
  margin-left:245px;
  background-color: white;
@@ -39,7 +40,7 @@ margin: auto;
  margin-top: -20px;
 }
 
-#submit  { /* Bouton du titre */
+#submit  { /* Bouton original du sommaire principal */
 	
 height:25px;
 background: lightgrey;
@@ -48,36 +49,36 @@ color:black;
 -webkit-border-radius:5px;
 border-radius:5px;
 }
-#submit:hover {
+#submit:hover { /* déclenchement d'un style quand la souris se trouve sur le bouton */
 background: -moz-linear-gradient(top, 
   #f3c5bd 0%,
   #e86c57 50%,
   #ea2803 51%,
   #ff6600 75%,
-  #c72200 100%); /* FF3.6+ */
+  #c72200 100%);
 background: -webkit-gradient(linear, left top, left bottom,
   color-stop(0%,#f3c5bd),
   color-stop(50%,#e86c57),
   color-stop(51%,#ea2803), 
   color-stop(75%,#ff6600),
-  color-stop(100%,#c72200)); /* Chrome,Safari4+ */
+  color-stop(100%,#c72200));
 background: -webkit-linear-gradient(top, 
   #f3c5bd 0%,
   #e86c57 50%,
   #ea2803 51%,
   #ff6600 75%,
-  #c72200 100%); /* Chrome10+,Safari5.1+ */
+  #c72200 100%);
 background: -o-linear-gradient(top, 
     #f3c5bd 0%,
 	#e86c57 50%,
 	#ea2803 51%,
 	#ff6600 75%,
-	#c72200 100%); /* Opera 11.10+ */
+	#c72200 100%);
 background: linear-gradient( to bottom,
   #f3c5bd 0%,
   #e86c57 50%,
   #ea2803 51%,
   #ff6600 75%,
-  #c72200 100%); /* W3C */
+  #c72200 100%);
 }
 }}

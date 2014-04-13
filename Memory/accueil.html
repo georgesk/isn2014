@@ -9,7 +9,7 @@
 <body>
 
 
-<section class="fixe"> <!-- sommaire du coin gauche -->
+<section class="fixe"> <!-- index du coin gauche -->
     <font face="Nyala" color="black"size="4"><b>Accueil :</b>
 	<p></p>
       <li>
@@ -29,27 +29,37 @@
 	 <a href="#">Retour en haut de page</a>
 </section>
 
-<section class="center">
 
- <div class="titre"> <!-- du titre -->
-  <a href="accueil.html"><p class="" style="text-align:center"><font face="Comic Sans MS" color="red" size="7"> <b> Le Memory </b> </font> </p></a>
+<section class="center"> <!-- élèment centrale, le plus important de la page: données principales -->
+
+<!--TITRE-->
+ <div class="titre">
+  <a href="accueil.html"><p class="" style="text-align:center"><font face="Comic Sans MS" color="grey" size="7"> <b> Le Memory </b> </font> </p></a>
  </div>
 
  <p></p>
 
- <div class="sommaire">
-  <table align="center" border="0">
-   <tr>
-    <td align="center" ><p><a href="vc/vc.html"><input type="button" value="Valentin Ceugniez" id="submit"></a></td>
-    <td align="center" ><p><a href="gt/gt.html"><input type="button" value="Guillaume Thiry" id="submit"></a></td>
-	<td align="center" ><p><a href="dv/dv.html"><input type="button" value="Dorian Vandenbroucke" id="submit"></a></td>
-	<td align="center" ><p><a href="regles/regles.html"><input type="button" value="Règles" id="submit"></a></td>
-   </tr>
-  </table>
- </div> <!-- fin de la partie du titre -->
+  <!--SOMMAIRE PRINCIPAL-->
+  <div class="sommaire">
+   <table align="center" border="0">
+    <tr>
+     <td align="center" ><p><a href="vc/vc.html"><input type="button" value="Valentin Ceugniez" id="submit"></a></td>
+     <td align="center" ><p><a href="gt/gt.html"><input type="button" value="Guillaume Thiry" id="submit"></a></td>
+	 <td align="center" ><p><a href="dv/dv.html"><input type="button" value="Dorian Vandenbroucke" id="submit"></a></td>
+	 <td align="center" ><p><a href="regles/regles.html"><input type="button" value="Règles" id="submit"></a></td>
+    </tr>
+   </table>
+  </div>
+  <!--FIN DU SOMMAIRE-->  
+
+<!--FIN DU TITRE-->
  
  <br></br>
  
+ <input type="button" value="Cliquer ici" onclick="Rand()" />
+ <p id="zone2">test</p>
+ 
+<!--TABLEAU CONTENANT LE JEU-->
  <table broder="0">
   <tr>
    <td id="1" />
@@ -83,5 +93,6 @@
    <td id="23" />
    <td id="24" />
   </tr>
+ </table>
    
 </section>
