@@ -1,3 +1,5 @@
+
+
 def map() :
     tab=[[0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
@@ -13,43 +15,51 @@ def map() :
 
 
 class bateau(object):
-    def __init__(self):
-        self.longueur = 0
-        self.sens = 0
-        self.originex = 0
-        self.originey = 0
-        self.nombre = 0
+    def __init__(self,longueur=0,sens=0,originex=0,originey=0,nombre=1,name=""):
+        self.longueur = longueur
+        self.sens = sens
+        self.originex = originex
+        self.originey = originey
+        self.nombre = nombre
+        self.name = name
+        
+    def __str__(self):
+        return "bateau {} sens : {} orgx : {} orgy : {}".format(self.name,self.sens,self.originex,self.originey)
 
-    def cases(self):
-        self.utilise = set([])
+utilise = []
 
 
 
-PorteAvion = bateau()
-Croiseur = bateau()
-ContreTorpilleur = bateau()
-SousMarin = bateau()
-Torpilleur = bateau()
+PorteAvion = bateau(longueur=5,name="PorteAvion")
+Croiseur = bateau(longueur=4,name="Croiseur")
+ContreTorpilleur = bateau(longueur=3,name="ContreTorpilleur")
+SousMarin = bateau(longueur=3,name="SousMarin")
+Torpilleur = bateau(longueur=2,nombre=2,name="Torpilleur")
 
-PorteAvion.longueur = 5
-PorteAvion.nombre = 1
 
-Croiseur.longueur = 4
-Croiseur.nombre = 1
 
-ContreTorpilleur.longueur = 3
-ContreTorpilleur.nombre = 1
 
-SousMarin.longueur = 3
-SousMarin.nombre = 1
-
-Torpilleur.longueur = 2
-Torpilleur.nombre = 2
+CarteJoueur = map()
 
 l=[PorteAvion,Croiseur,ContreTorpilleur,SousMarin,Torpilleur]
 
 for i in range(len(l)):
     for j in range(l[i].nombre):
-        l[i].sens = input("sens 1=horizontal ou 2=vertical")
-        l[i].originex = input("numero de la colonne de la premiere case du %d",l[i])
-        l[i].originey = input("numero de la ligne de la premiere case du %d",l[i])
+        print(l[i].name)
+        l[i].sens = int(input("sens 1 = horizontal ou 0 = vertical "))
+        l[i].originex = int(input("numero de la colonne de la premiere case : "))
+        l[i].originey = int(input("numero de la ligne de la premiere case : "))
+        print(l[i])
+        if l[i].sens == 1 :
+            for k in range(l[i].longueur):
+                print(l[i].originex + k)
+                print("bonjour")
+                CarteJoueur[l[i].originey][l[i].originex + k] = l[i].name
+                coord=(l[i].originex + k,l[i].originey)
+                utilise.append(coord)
+        print(utilise)
+        print(CarteJoueur)
+        
+                    
+        
+        
