@@ -1,0 +1,120 @@
+\hypertarget{classserveur_1_1BatNav}{\section{Référence de la classe serveur.\-Bat\-Nav}
+\label{classserveur_1_1BatNav}\index{serveur.\-Bat\-Nav@{serveur.\-Bat\-Nav}}
+}
+
+
+cette classe est la définition d'un service web.  
+
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classserveur_1_1BatNav_a4bee30dcf9c6439b0120b0f84e351c8e}{check\-Session}
+\begin{DoxyCompactList}\small\item\em crée un cookie de session si celui-\/ci n'existe pas encore ; enregistre l'heure de début et procède à une authentification, si nécesaire. \end{DoxyCompactList}\item 
+def \hyperlink{classserveur_1_1BatNav_a788dcf39ae9210eece7d5a1ee4ea593e}{index}
+\begin{DoxyCompactList}\small\item\em page racine du site web. \end{DoxyCompactList}\item 
+def \hyperlink{classserveur_1_1BatNav_afb6d70a94f46205136428435bffdc442}{login}
+\begin{DoxyCompactList}\small\item\em demande le nom et le stocke dans la session \end{DoxyCompactList}\item 
+def \hyperlink{classserveur_1_1BatNav_a2e39322808163b8d156562e198518ccf}{jeu}
+\begin{DoxyCompactList}\small\item\em Cette page sert à renvoyer au format J\-S\-O\-N un certain nombre de données organisées en dictionnaire Python. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+cette classe est la définition d'un service web. 
+
+Les méthodes dont l'attribut exposed est Vrai sont autant de pages servies par le serveur web. 
+
+Définition à la ligne 16 du fichier serveur.\-py.
+
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{classserveur_1_1BatNav_a4bee30dcf9c6439b0120b0f84e351c8e}{\index{serveur\-::\-Bat\-Nav@{serveur\-::\-Bat\-Nav}!check\-Session@{check\-Session}}
+\index{check\-Session@{check\-Session}!serveur::BatNav@{serveur\-::\-Bat\-Nav}}
+\subsubsection[{check\-Session}]{\setlength{\rightskip}{0pt plus 5cm}def serveur.\-Bat\-Nav.\-check\-Session (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classserveur_1_1BatNav_a4bee30dcf9c6439b0120b0f84e351c8e}
+
+
+crée un cookie de session si celui-\/ci n'existe pas encore ; enregistre l'heure de début et procède à une authentification, si nécesaire. 
+
+
+
+Définition à la ligne 23 du fichier serveur.\-py.
+
+\hypertarget{classserveur_1_1BatNav_a788dcf39ae9210eece7d5a1ee4ea593e}{\index{serveur\-::\-Bat\-Nav@{serveur\-::\-Bat\-Nav}!index@{index}}
+\index{index@{index}!serveur::BatNav@{serveur\-::\-Bat\-Nav}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}def serveur.\-Bat\-Nav.\-index (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classserveur_1_1BatNav_a788dcf39ae9210eece7d5a1ee4ea593e}
+
+
+page racine du site web. 
+
+\begin{DoxyReturn}{Renvoie}
+une page web qui devrait être valide pour le W3\-C. Cette page décrit brièvement le jeu de bataille navale et permet de commencer à jouer. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 38 du fichier serveur.\-py.
+
+\hypertarget{classserveur_1_1BatNav_a2e39322808163b8d156562e198518ccf}{\index{serveur\-::\-Bat\-Nav@{serveur\-::\-Bat\-Nav}!jeu@{jeu}}
+\index{jeu@{jeu}!serveur::BatNav@{serveur\-::\-Bat\-Nav}}
+\subsubsection[{jeu}]{\setlength{\rightskip}{0pt plus 5cm}def serveur.\-Bat\-Nav.\-jeu (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{dico}
+\end{DoxyParamCaption}
+)}}\label{classserveur_1_1BatNav_a2e39322808163b8d156562e198518ccf}
+
+
+Cette page sert à renvoyer au format J\-S\-O\-N un certain nombre de données organisées en dictionnaire Python. 
+
+La conversion au format J\-S\-O\-N est faite automatiquement par le module Cherrypy, grâce au \char`\"{}décorateur\char`\"{} cherrypy.\-tools.\-json\-\_\-out() 
+\begin{DoxyParams}{Paramètres}
+{\em dico} & le dictionnaire qui rassemble les données entrantes. ces données sont celles que la page reçoit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un objet au format J\-S\-O\-N, ses champs doivent être explicites. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 101 du fichier serveur.\-py.
+
+\hypertarget{classserveur_1_1BatNav_afb6d70a94f46205136428435bffdc442}{\index{serveur\-::\-Bat\-Nav@{serveur\-::\-Bat\-Nav}!login@{login}}
+\index{login@{login}!serveur::BatNav@{serveur\-::\-Bat\-Nav}}
+\subsubsection[{login}]{\setlength{\rightskip}{0pt plus 5cm}def serveur.\-Bat\-Nav.\-login (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{url\-\_\-retour = {\ttfamily \char`\"{}/\char`\"{}}, }
+\item[{}]{dico}
+\end{DoxyParamCaption}
+)}}\label{classserveur_1_1BatNav_afb6d70a94f46205136428435bffdc442}
+
+
+demande le nom et le stocke dans la session 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em url\-\_\-retour} & est l'U\-R\-L à servir dès que le nom est défini. url\-\_\-retour est la racine du site par défaut. \\
+\hline
+{\em dico} & dictionnaire des paramètres envoyés, par le formulaire, ou à partir d'une autre page. Si la clé \char`\"{}nom\char`\"{} correspond à une valeur, celle-\/ci sera utilisée pour le login. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+un formulaire pour l'authentification si celle-\/ci n'est pas définie dans le dictionnaire dico. Sinon ne renvoie rien \-: un mécanisme d'exception déclenche le service de la page web désignée par url\-\_\-retour. 
+\end{DoxyReturn}
+
+
+Définition à la ligne 69 du fichier serveur.\-py.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{serveur_8py}{serveur.\-py}\end{DoxyCompactItemize}
