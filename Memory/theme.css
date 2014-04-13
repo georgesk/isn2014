@@ -1,0 +1,121 @@
+.affichage {
+    background-image:url(1_bl.jpg);
+}
+.affichage1 {
+	background-image:url(ne.jpg);
+}
+.affichage2 {
+    background-color: yellow;
+}
+.affichage3 {
+    background-color: darkgray;
+}
+.affichge4 {
+    background-color: white;
+}
+body {
+color:black;
+background-color:lightgrey;
+background-repeat:no-repeat;
+background-image:;
+background-position:center;
+background-attachment:fixed;
+width: auto;
+margin: auto;
+}
+.affichage5 {
+  width: 1200px;
+  margin: 10px auto;
+  padding: 5px;
+  border-top: solid yellow 5px;
+  border-right: solid yellow 5px;
+  border-left: solid yellow 5px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  background-color: yellow;
+  width: 250px;
+  padding: 10px;
+  border: solid blue 2px;
+}
+ nav {
+  position: fixed;
+  left: 10px;
+  width: 200px;
+  border: solid black 5px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: -17px;
+  background-color:lightgrey;
+}
+section {
+  margin-left: 255px;
+  margin-right: 10px;
+}
+img {
+  float: left;
+  margin: 0 0 1em 1em;
+  overflow: auto;
+}
+.ground {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-image: url(1_1.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border-bottom: ridge grey 4px;
+  border-right: ridge grey 4px;
+}
+.relative2 {
+  position: relative;
+  top: -45px;
+}
+#submit  {
+	
+height:25px;
+background: lightgrey;
+color:black;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+}
+#submit:hover {
+background: -moz-linear-gradient(top, 
+  #f3c5bd 0%,
+  #e86c57 50%,
+  #ea2803 51%,
+  #ff6600 75%,
+  #c72200 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0%,#f3c5bd),
+  color-stop(50%,#e86c57),
+  color-stop(51%,#ea2803), 
+  color-stop(75%,#ff6600),
+  color-stop(100%,#c72200)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, 
+  #f3c5bd 0%,
+  #e86c57 50%,
+  #ea2803 51%,
+  #ff6600 75%,
+  #c72200 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, 
+    #f3c5bd 0%,
+	#e86c57 50%,
+	#ea2803 51%,
+	#ff6600 75%,
+	#c72200 100%); /* Opera 11.10+ */
+background: linear-gradient( to bottom,
+  #f3c5bd 0%,
+  #e86c57 50%,
+  #ea2803 51%,
+  #ff6600 75%,
+  #c72200 100%); /* W3C */
+}
+}}
