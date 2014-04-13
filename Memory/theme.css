@@ -1,10 +1,10 @@
 
 body { /* fond de page */
 color:black;
-background-color: lightgrey;
 background-repeat:no-repeat;
-background-image:;
-background-position:center;
+background-image: url("fe.jpg");
+background-position:center;-
+
 background-attachment:fixed;
 width: auto;
 margin: auto;
@@ -14,7 +14,7 @@ margin: auto;
   border-top: solid white 20px;
   margin-left: -40px;
   margin-right: -40px;
-  box-shadow: 15px 20px 10px lightgrey;
+  box-shadow: 0px 20px 10px lightgrey;
   text-shadow: 5px 5px 5px lightgrey;
 }
 .fixe{ /* index du coin gauche */
@@ -24,7 +24,7 @@ margin: auto;
   border: solid black 5px;
   padding: 10px;
   border-radius: 10px;
-  margin-top: 500px;
+  margin-top: 570px;
   background-color:lightgrey;
 }
 .sommaire { /* sommaire */
@@ -81,4 +81,3 @@ background: linear-gradient( to bottom,
   #ff6600 75%,
   #c72200 100%);
 }
-}}
