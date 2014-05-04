@@ -3,13 +3,19 @@
 	font-weight:bold;
 	font-size:150%;
 }
+
 #bonjour{
 	text-align:left;
 	text-indent:30px;
 }
 
-.bateau{
+#aireDeJeu{
+    float: left;
+}
+
+#bateaux{
 	float:right;
+	width: 50%;
 }
 
 table {
@@ -18,24 +24,8 @@ table {
 }
 
 #PA,#CR,#SS,#TO1,#CT {
-	margin:auto;
-	display:table-cell;
 	padding:20px;
 }
 #PAD ,#CRD,#SSD,#TO1D,#TO2D,#CTD{
-	margin:auto;
-	display:table-cell;
 	padding:2px;
-}
-#CRD{
-	width:110px;
-}
-#PAD{
-	width:140px;
-}
-#SSD,#CTD{
-	width:80px;
-}
-#TO1D,#TO2D{
-	width:50px;
 }
