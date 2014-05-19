@@ -14,6 +14,8 @@ var laFlotte = {
     T1: {img: "Torpilleur",       l:2},
     T2: {img: "Torpilleur",       l:2},
 };
+
+var coord = new Array();
 /**
  * identification d'une image draggable
  * @param jQobj un objet de type jQuery
@@ -22,9 +24,9 @@ var laFlotte = {
 function identifieDraggable(jQobj){
     var s = jQobj.attr("src");
     var m = s.match(/image\/(.*)DraggableV\.jpg/);
-    if (m) return {img: m[1], sens: "v"};
+    if (m) return {img: m[1], sens: "h"};
     m=s.match(/image\/(.*)Draggable\.jpg/);
-    return {img: m[1], sens: "h"};
+    return {img: m[1], sens: "v"};
 }
 
 /**
@@ -56,16 +58,17 @@ function traceAireDeJeu(id){
     for(var lig=1; lig <=10; lig++){
 	tr=$("<tr>");
 	t.append(tr);
-	tr.append($("<td>",{content: "non"}).html(" ABCDEFGHIJ".charAt(lig)));
+	tr.append($("<td>").html(" ABCDEFGHIJ".charAt(lig)));
 	for(col=1; col <=10; col++){
-	    var id="["+lig+";"+col+"]";
+	    var id="["+lig+","+col+"]";
 	    var td=$("<td>",{id: id, content: "0"});
 	    tr.append(td);
 	    var fnMaker = function(id) {
 		return function(ev, ui){
 		    //alert("dropped into "+id+$(ui.draggable).find("img").attr("src"));
 		    var i= identifieDraggable(ui.draggable);
-		    alert("dropped into "+id+" "+i["img"]+" "+i["sens"]);
+			coord.push(""+i["img"]+" "+id+" "+i["sens"]);
+			alert(coord);
 		}
 	    };
 	    $(td).droppable({

@@ -21,10 +21,6 @@ HTML_header="""
 <head>
 <title>{title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/static/style.css"/>
-<script type="text/javascript" src="/static/programme.js"></script>
-</head>
-<body>
 """
 
 """
@@ -33,4 +29,20 @@ Fin du fichier HTML.
 HTML_footer="""
 </body>
 </html>
+"""
+
+HTML_scriptInit="""
+<script src="static/jquery-ui-1.10.4/js/jquery-1.10.2.js"></script>
+<script src="static/jquery-ui-1.10.4/js/jquery-ui-1.10.4.js"></script>
+<script src="static/jquery-ui-1.10.4/js/jQueryRotate.2.1.js"></script>
+<script src="static/js/batnav.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+</head>
+<body>
+"""
+
+HTML_scriptAuthen="""
+<link rel="stylesheet" type="text/css" href="/static/style.css"/>
+</head>
+<body>
 """

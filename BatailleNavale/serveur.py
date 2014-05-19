@@ -15,8 +15,13 @@ Le texte de la licence est disponible à http://www.gnu.org/licenses/gpl.html
 import cherrypy
 import datetime
 import os.path
-from constantes import HTML_header, HTML_footer
+from constantes import HTML_header, HTML_footer, HTML_scriptAuthen, HTML_scriptInit
 import json
+import mapIA
+from socket import gethostbyname, gethostname
+
+IP = gethostbyname(gethostname())
+
 
 class BatNav:
     """
@@ -60,7 +65,7 @@ L'adresse où l'automate répond en langue JSON est
         return result
     
     @cherrypy.expose
-    def login(self, url_retour="/", **dico):
+    def login(self, url_retour="/Init", **dico):
         """
         demande le nom et le stocke dans la session
         @param url_retour est l'URL à servir dès que le nom est défini.
@@ -88,10 +93,10 @@ L'adresse où l'automate répond en langue JSON est
     Entrez votre nom : <input type="text" name="nom" />
     <input type="submit" value="OK"/>
   </fieldset>
-</form>
-"""
+</form>"""
+            result+=HTML_scriptAuthen
             result+=HTML_footer
-            return result
+        return result
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
@@ -105,14 +110,45 @@ L'adresse où l'automate répond en langue JSON est
         ces données sont celles que la page reçoit.
         @return un objet au format JSON, ses champs doivent être explicites.
         """
-        self.checkSession()
+        if "coord" in dico:
+            cherrypy.session["coord"]=dico["coord"]
         result={}
         result["commentaire"]="Résultat de la page JEU ; les paramètres ne sont pas retravaillés dans cette version de la page"
         result["debut_session"]=cherrypy.session["heure"]
         result["nom"]=cherrypy.session["nom"]
         result["idSession"]=cherrypy.session.id
-        result["inputData"]=dico
+        result["inputData"]=cherrypy.session["coord"]
         return result
+	
+    @cherrypy.expose
+    def Init(self,url_retour="/jeu",**dico):
+	    if "coord" in dico:
+		    cherrypy.session["coord"]=dico["coord"]
+		    if url_return:
+			    raise cherrypy.HTTPRedirect(url_retour)
+		    else:
+			    return "Bienvenue %s" %dico["nom"]
+	    else:
+		    result=HTML_header.format(title="Initialisation")
+		    result+=HTML_scriptInit
+		    result+="""
+<p></p>
+<p id="bonjour"> Bienvenue {nom}, veuillez enregistrer votre carte de jeu : </p>
+<!-- place pour l'aire de Jeu qui sera initialisée par le programme -->
+<div id="aireDeJeu"> </div>
+<!-- place pour les bateaux, initialisée par le programme -->
+<div id="bateaux"> </div>
+<div id="confirm">
+    confirmer :
+	<form>
+	<input type="submit" value="enregistrer"/>
+	</form>
+</div>
+""".format(nom=cherrypy.session["nom"])
+		    result+=HTML_footer
+		    return result
+		
+	
 
 
 """
@@ -120,15 +156,21 @@ définition du répertoire contenant les pages statiques du site web
 ces pages n'ont pas besoin d'être calculées.
 """
 _STATIC_DIR = os.path.join(os.path.abspath("."), "static")
+_IMG_DIR = os.path.join(os.path.abspath("."), "image")
 
 """détails de la configuration du serveur."""
 dev_config = {
     '/':       {'tools.caching.on': False, # pas de mécanisme de cache
-                'tools.sessions.on': True  # gestion des sessions activée
-                },
+                'tools.sessions.on': True,  # gestion des sessions activée
+				'tools.staticdir.on': True,
+				'tools.staticdir.dir': os.path.join(os.path.abspath("."))
+				},
     '/static': {'tools.staticdir.on': True,        # contenu statique
                 'tools.staticdir.dir': _STATIC_DIR # dans ce dossier
                 },
+	'/image': {'tools.staticdir.on': True,
+				'tools.staticdir.on': _IMG_DIR
+				},
     }
 
 ### bout de code effectué si c'est ce fichier qui est invoqué
@@ -137,9 +179,10 @@ if __name__ == '__main__':
 
     """définition de l'adresse et du port du service web."""
     cherrypy.config.update(
-         {'server.socket_host': "localhost",
+         {'server.socket_host': IP,
          'server.socket_port': 8080})
 
 
     ### démarrage du serveur web avec la configuration "de développement"
     cherrypy.quickstart(BatNav(), config=dev_config)
+
