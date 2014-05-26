@@ -19,7 +19,9 @@
 }
 
 #confirm{
-	float: left;
+	position:absolute;
+	bottom:250px;
+	right:250px;
 }
 
 table {
@@ -32,4 +34,11 @@ table {
 }
 #PAD ,#CRD,#SSD,#TO1D,#TO2D,#CTD{
 	padding:2px;
+}
+#aireDeJeu{
+    float: left;
+}
+
+#aireDeJeu2{
+    float: right;
 }

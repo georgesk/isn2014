@@ -15,18 +15,36 @@ var laFlotte = {
     T2: {img: "Torpilleur",       l:2},
 };
 
+/**
+ * coord sera une liste de coordonnées liées à une image de bateau.
+ * chaque élément de la liste sera un objet de structure
+ * { x: <abscisse>, y: <ordonnée>, bateau: <element jquery du bateau>}
+ **/
 var coord = new Array();
+
 /**
  * identification d'une image draggable
  * @param jQobj un objet de type jQuery
  * @return un objet {img: <nom caractéristique>, sens: 'v' ou 'h'}
  **/
 function identifieDraggable(jQobj){
+    var img=null, sens=null, l=0;
     var s = jQobj.attr("src");
+
     var m = s.match(/image\/(.*)DraggableV\.jpg/);
-    if (m) return {img: m[1], sens: "h"};
+    if (m) { img = m[1]; sens = "v"; }
+
     m=s.match(/image\/(.*)Draggable\.jpg/);
-    return {img: m[1], sens: "v"};
+    if (m) { img = m[1]; sens = "h"; }
+
+    for (bateau in laFlotte){
+	if (laFlotte[bateau].img == img){
+	    l= laFlotte[bateau].l;
+	    break;
+	}
+    }
+    var result = {img: img, sens: sens, longueur: l};
+    return result;
 }
 
 /**
@@ -63,21 +81,100 @@ function traceAireDeJeu(id){
 	    var id="["+lig+","+col+"]";
 	    var td=$("<td>",{id: id, content: "0"});
 	    tr.append(td);
-	    var fnMaker = function(id) {
+	    var fnMaker = function(el,lig,col) {
+		// cette fonction fabrique une fonction
+		// paramètres :
+		// el est l'élément qui reçoit le drop
+		// li, col sont les coordonnées de cet élément
 		return function(ev, ui){
-		    //alert("dropped into "+id+$(ui.draggable).find("img").attr("src"));
+		    // c'est cette fonction-là qui est fabriquée.
+		    // paramètres:
+		    // ev évènement drop
+		    // ui l'élément jquery-ui qui est lâché
 		    var i= identifieDraggable(ui.draggable);
-			coord.push(""+i["img"]+" "+id+" "+i["sens"]);
-			alert(coord);
+		    // on force l'alignement des coins haut-gauche de l'image
+		    // lâchée avec la case cible, juste après le drop
+		    ui.draggable.position({
+			my: "left top",
+			at: "left top",
+			of: el,
+		    });
+		    // après l'alignement, on sait quelles cases sont occupées
+		    // par le bateau
+		    // on efface les anciennes coordonnées du bateau
+		    for (var c=0; c < coord.length; c++){
+			// ne pas s'occuper des valeurs undefined
+			if (! (coord[c])) continue; 
+			if ((coord[c].bateau)[0] == (ui.draggable)[0]){
+			    // on a bien le même élément DOM
+			    // alors on l'efface
+			    delete coord[c];
+			    // l'élément reste mais il devient indéfini
+			}
+		    }
+		    if (i["sens"]=="h"){
+			// si le bateau est horizontal,
+			for(var compte=0; compte<i["longueur"]; compte++){
+			    var coord_element={
+				x: parseInt(col)+compte,
+				y: parseInt(lig),
+				bateau: ui.draggable,
+			    };
+			    coord.push(coord_element);
+			}
+		    } else{
+			// si le bateau est vertical,
+			for(var compte=0; compte<i["longueur"]; compte++){
+			    var coord_element={
+				x: parseInt(col),
+				y: parseInt(lig)+compte,
+				bateau: ui.draggable,
+			    };
+			    coord.push(coord_element);
+			}
+		    }
+		    // déclenche une information générale
+		    informeDesBateaux();
 		}
 	    };
+	    // la bonne fonction drop est fabriquée sur mesure avec les
+	    // bons paramètres
 	    $(td).droppable({
-		drop: fnMaker(id)
+		drop: fnMaker($(td), lig, col)
 	    });
 	    td.append($("<img>", {src: "image/case.png"}));
 	}
     }
     return t;
+}
+
+/**
+ * Cette fonction exploite l'information du tableau coord, elles est 
+ * appelée quand un bateau est posé.
+ **/
+function informeDesBateaux(){
+    $("#bateauPlace").css("display","block").fadeOut( "slow"); // signal visuel
+    // construction de la liste des bateaux posés
+    var bateaux= new Object;
+    for(var i=0; i < coord.length; i++){
+		if(coord[i]){ // pas besoin de retenir les éléments undefined
+			var b=coord[i].bateau.attr("id");
+			if (! (b in bateaux)){
+				// bateau inconnu, on démarre le tableau de ses coordonnées
+				bateaux[b] = new Array;
+			};
+			var xy={
+			x: coord[i].x,
+			y: coord[i].y,
+			};
+			bateaux[b].push(xy);
+		};
+    };
+    console.log(JSON.stringify(bateaux));
+    $.getJSON( "jeu",{bateaux: JSON.stringify(bateaux)}).done(function(reponse) {
+	console.log( reponse );
+	$("#debugZone").text(JSON.stringify(reponse));
+    });
 }
 
 /**
@@ -90,27 +187,29 @@ function placeFlotte(id){
 	var nom = laFlotte[b].img;
 	var img = $("<img>",{src: "image/"+nom+".jpg", id: b});
 	div.append(img);
-	img = $("<img>",{src: bateauSrc(nom, "h"), id: b+"D"});
+	img = $("<img>",{
+	    src: bateauSrc(nom, "h"), 
+	    id: b+"D",
+	    title: nom+" ; double-clic pour basculer h/v"
+	});
 	div.append(img);
 	/* la deuxième image de chaque bateau est draggable et on peut la */
 	/* faire tourner par un double clic                               */
-	img.draggable().rotate({
-	    bind: {
-		dblclick: function() {
-		    var i = identifieDraggable($(this));
-		    // basculement du sens de l'image
-		    var sens = "h";
-		    if (i["sens"] == "h") sens = "v";
-		    $(this).attr("src", bateauSrc(i["img"],sens));
-		}
-	    }
+	img.draggable().bind({
+	    dblclick: function() {
+		console.log("grr ça tourne")
+		var i = identifieDraggable($(this));
+		// basculement du sens de l'image
+		var sens = "h";
+		if (i["sens"] == "h") sens = "v";
+		$(this).attr("src", bateauSrc(i["img"],sens));
+	    },
 	});
-	
-    }
-}
+    };
+};
 
 $(document).ready(function(){
-    var t = traceAireDeJeu("aireDeJeu");
+	var t = traceAireDeJeu("aireDeJeu");
     placeFlotte("bateaux");
 });
 

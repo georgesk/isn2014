@@ -1,0 +1,195 @@
+\hypertarget{namespacemapIA}{\section{Référence de l'espace de nommage map\-I\-A}
+\label{namespacemapIA}\index{map\-I\-A@{map\-I\-A}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classmapIA_1_1bateau}{bateau}
+\begin{DoxyCompactList}\small\item\em classe pour impl�menter les bateaux \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacemapIA_a07aa7cef6cded245e3726ca002ada4cc}{map}
+\begin{DoxyCompactList}\small\item\em Initialisation de terrain de jeu vide. \end{DoxyCompactList}\item 
+def \hyperlink{namespacemapIA_acaa6e2766241424eab25926347449709}{utilisateur}
+\begin{DoxyCompactList}\small\item\em permet de d�finir la carte de jeu du joueur \end{DoxyCompactList}\item 
+def \hyperlink{namespacemapIA_aa3e6bde576e412f528beeb2a4284610e}{ordi}
+\begin{DoxyCompactList}\small\item\em permet de d�finir une carte al�atoire \end{DoxyCompactList}\item 
+def \hyperlink{namespacemapIA_a879cad271640caa500dfe0a71afdaa11}{init}
+\begin{DoxyCompactList}\small\item\em permet de transformer un dictionnaire python contenant des positions de bateaux en une liste \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespacemapIA_a2eb569dd5a95aebd189ad07e5780dfc7}{utilise} = \mbox{[}$\,$\mbox{]}
+\item 
+list \hyperlink{namespacemapIA_a309a59b71877fe3d9646b1ca13e6da99}{utilise\-I\-A} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespacemapIA_a31fc24195ea636531e2a0f87535e8584}{Porte\-Avion} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=5,name=\char`\"{}Porte avion\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a9b0b78e5b10e3c69824c980e804d8e3a}{Croiseur} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=4,name=\char`\"{}Croiseur\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a328579f1726b839070a7447c1aaa1dc4}{Contre\-Torpilleur} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=3,name=\char`\"{}Contre-\/torpilleur\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a9b5c834a25a2fec1c150226e63acb189}{Sous\-Marin} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=3,name=\char`\"{}Sous marin\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a3ff6b55b368579554153d76cb8b40752}{Torpilleur1} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=2,name=\char`\"{}Torpilleur 1\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a53be1d89da79a45d9abc4e7ee4d26686}{Torpilleur2} = \hyperlink{classmapIA_1_1bateau}{bateau}(longueur=2,name=\char`\"{}Torpilleur 2\char`\"{})
+\item 
+tuple \hyperlink{namespacemapIA_a2f95e844f52fe35f954ce1b15bf78c28}{Carte\-Joueur} = \hyperlink{namespacemapIA_a07aa7cef6cded245e3726ca002ada4cc}{map}()
+\item 
+tuple \hyperlink{namespacemapIA_a8dc9582830d71f060d8803eddabecfa8}{Carte\-I\-A} = \hyperlink{namespacemapIA_a07aa7cef6cded245e3726ca002ada4cc}{map}()
+\item 
+list \hyperlink{namespacemapIA_af66becab7592d928fa0ff7a4af6431c8}{l} = \mbox{[}\hyperlink{namespacemapIA_a31fc24195ea636531e2a0f87535e8584}{Porte\-Avion},\hyperlink{namespacemapIA_a9b0b78e5b10e3c69824c980e804d8e3a}{Croiseur},\hyperlink{namespacemapIA_a328579f1726b839070a7447c1aaa1dc4}{Contre\-Torpilleur},\hyperlink{namespacemapIA_a9b5c834a25a2fec1c150226e63acb189}{Sous\-Marin},\hyperlink{namespacemapIA_a3ff6b55b368579554153d76cb8b40752}{Torpilleur1},\hyperlink{namespacemapIA_a53be1d89da79a45d9abc4e7ee4d26686}{Torpilleur2}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{namespacemapIA_a879cad271640caa500dfe0a71afdaa11}{\index{map\-I\-A@{map\-I\-A}!init@{init}}
+\index{init@{init}!mapIA@{map\-I\-A}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}def map\-I\-A.\-init (
+\begin{DoxyParamCaption}
+\item[{}]{dico}
+\end{DoxyParamCaption}
+)}}\label{namespacemapIA_a879cad271640caa500dfe0a71afdaa11}
+
+
+permet de transformer un dictionnaire python contenant des positions de bateaux en une liste 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em dico} & dictionnaire python \\
+\hline
+\end{DoxyParams}
+
+
+Définition à la ligne 158 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a07aa7cef6cded245e3726ca002ada4cc}{\index{map\-I\-A@{map\-I\-A}!map@{map}}
+\index{map@{map}!mapIA@{map\-I\-A}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}def map\-I\-A.\-map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacemapIA_a07aa7cef6cded245e3726ca002ada4cc}
+
+
+Initialisation de terrain de jeu vide. 
+
+\begin{DoxyReturn}{Renvoie}
+un tableau 10 x 10 rempli avec des z�ros 
+\end{DoxyReturn}
+
+
+Définition à la ligne 22 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_aa3e6bde576e412f528beeb2a4284610e}{\index{map\-I\-A@{map\-I\-A}!ordi@{ordi}}
+\index{ordi@{ordi}!mapIA@{map\-I\-A}}
+\subsubsection[{ordi}]{\setlength{\rightskip}{0pt plus 5cm}def map\-I\-A.\-ordi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacemapIA_aa3e6bde576e412f528beeb2a4284610e}
+
+
+permet de d�finir une carte al�atoire 
+
+
+
+Définition à la ligne 112 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_acaa6e2766241424eab25926347449709}{\index{map\-I\-A@{map\-I\-A}!utilisateur@{utilisateur}}
+\index{utilisateur@{utilisateur}!mapIA@{map\-I\-A}}
+\subsubsection[{utilisateur}]{\setlength{\rightskip}{0pt plus 5cm}def map\-I\-A.\-utilisateur (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespacemapIA_acaa6e2766241424eab25926347449709}
+
+
+permet de d�finir la carte de jeu du joueur 
+
+
+
+Définition à la ligne 86 du fichier map\-I\-A.\-py.
+
+
+
+\subsection{Documentation des variables}
+\hypertarget{namespacemapIA_a8dc9582830d71f060d8803eddabecfa8}{\index{map\-I\-A@{map\-I\-A}!Carte\-I\-A@{Carte\-I\-A}}
+\index{Carte\-I\-A@{Carte\-I\-A}!mapIA@{map\-I\-A}}
+\subsubsection[{Carte\-I\-A}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Carte\-I\-A = {\bf map}()}}\label{namespacemapIA_a8dc9582830d71f060d8803eddabecfa8}
+
+
+Définition à la ligne 77 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a2f95e844f52fe35f954ce1b15bf78c28}{\index{map\-I\-A@{map\-I\-A}!Carte\-Joueur@{Carte\-Joueur}}
+\index{Carte\-Joueur@{Carte\-Joueur}!mapIA@{map\-I\-A}}
+\subsubsection[{Carte\-Joueur}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Carte\-Joueur = {\bf map}()}}\label{namespacemapIA_a2f95e844f52fe35f954ce1b15bf78c28}
+
+
+Définition à la ligne 76 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a328579f1726b839070a7447c1aaa1dc4}{\index{map\-I\-A@{map\-I\-A}!Contre\-Torpilleur@{Contre\-Torpilleur}}
+\index{Contre\-Torpilleur@{Contre\-Torpilleur}!mapIA@{map\-I\-A}}
+\subsubsection[{Contre\-Torpilleur}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Contre\-Torpilleur = {\bf bateau}(longueur=3,name=\char`\"{}Contre-\/torpilleur\char`\"{})}}\label{namespacemapIA_a328579f1726b839070a7447c1aaa1dc4}
+
+
+Définition à la ligne 69 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a9b0b78e5b10e3c69824c980e804d8e3a}{\index{map\-I\-A@{map\-I\-A}!Croiseur@{Croiseur}}
+\index{Croiseur@{Croiseur}!mapIA@{map\-I\-A}}
+\subsubsection[{Croiseur}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Croiseur = {\bf bateau}(longueur=4,name=\char`\"{}Croiseur\char`\"{})}}\label{namespacemapIA_a9b0b78e5b10e3c69824c980e804d8e3a}
+
+
+Définition à la ligne 68 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_af66becab7592d928fa0ff7a4af6431c8}{\index{map\-I\-A@{map\-I\-A}!l@{l}}
+\index{l@{l}!mapIA@{map\-I\-A}}
+\subsubsection[{l}]{\setlength{\rightskip}{0pt plus 5cm}list map\-I\-A.\-l = \mbox{[}{\bf Porte\-Avion},{\bf Croiseur},{\bf Contre\-Torpilleur},{\bf Sous\-Marin},{\bf Torpilleur1},{\bf Torpilleur2}\mbox{]}}}\label{namespacemapIA_af66becab7592d928fa0ff7a4af6431c8}
+
+
+Définition à la ligne 79 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a31fc24195ea636531e2a0f87535e8584}{\index{map\-I\-A@{map\-I\-A}!Porte\-Avion@{Porte\-Avion}}
+\index{Porte\-Avion@{Porte\-Avion}!mapIA@{map\-I\-A}}
+\subsubsection[{Porte\-Avion}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Porte\-Avion = {\bf bateau}(longueur=5,name=\char`\"{}Porte avion\char`\"{})}}\label{namespacemapIA_a31fc24195ea636531e2a0f87535e8584}
+
+
+Définition à la ligne 67 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a9b5c834a25a2fec1c150226e63acb189}{\index{map\-I\-A@{map\-I\-A}!Sous\-Marin@{Sous\-Marin}}
+\index{Sous\-Marin@{Sous\-Marin}!mapIA@{map\-I\-A}}
+\subsubsection[{Sous\-Marin}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Sous\-Marin = {\bf bateau}(longueur=3,name=\char`\"{}Sous marin\char`\"{})}}\label{namespacemapIA_a9b5c834a25a2fec1c150226e63acb189}
+
+
+Définition à la ligne 70 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a3ff6b55b368579554153d76cb8b40752}{\index{map\-I\-A@{map\-I\-A}!Torpilleur1@{Torpilleur1}}
+\index{Torpilleur1@{Torpilleur1}!mapIA@{map\-I\-A}}
+\subsubsection[{Torpilleur1}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Torpilleur1 = {\bf bateau}(longueur=2,name=\char`\"{}Torpilleur 1\char`\"{})}}\label{namespacemapIA_a3ff6b55b368579554153d76cb8b40752}
+
+
+Définition à la ligne 71 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a53be1d89da79a45d9abc4e7ee4d26686}{\index{map\-I\-A@{map\-I\-A}!Torpilleur2@{Torpilleur2}}
+\index{Torpilleur2@{Torpilleur2}!mapIA@{map\-I\-A}}
+\subsubsection[{Torpilleur2}]{\setlength{\rightskip}{0pt plus 5cm}tuple map\-I\-A.\-Torpilleur2 = {\bf bateau}(longueur=2,name=\char`\"{}Torpilleur 2\char`\"{})}}\label{namespacemapIA_a53be1d89da79a45d9abc4e7ee4d26686}
+
+
+Définition à la ligne 72 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a2eb569dd5a95aebd189ad07e5780dfc7}{\index{map\-I\-A@{map\-I\-A}!utilise@{utilise}}
+\index{utilise@{utilise}!mapIA@{map\-I\-A}}
+\subsubsection[{utilise}]{\setlength{\rightskip}{0pt plus 5cm}list map\-I\-A.\-utilise = \mbox{[}$\,$\mbox{]}}}\label{namespacemapIA_a2eb569dd5a95aebd189ad07e5780dfc7}
+
+
+Définition à la ligne 62 du fichier map\-I\-A.\-py.
+
+\hypertarget{namespacemapIA_a309a59b71877fe3d9646b1ca13e6da99}{\index{map\-I\-A@{map\-I\-A}!utilise\-I\-A@{utilise\-I\-A}}
+\index{utilise\-I\-A@{utilise\-I\-A}!mapIA@{map\-I\-A}}
+\subsubsection[{utilise\-I\-A}]{\setlength{\rightskip}{0pt plus 5cm}list map\-I\-A.\-utilise\-I\-A = \mbox{[}$\,$\mbox{]}}}\label{namespacemapIA_a309a59b71877fe3d9646b1ca13e6da99}
+
+
+Définition à la ligne 63 du fichier map\-I\-A.\-py.
+

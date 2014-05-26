@@ -15,10 +15,11 @@ Le texte de la licence est disponible à http://www.gnu.org/licenses/gpl.html
 import cherrypy
 import datetime
 import os.path
-from constantes import HTML_header, HTML_footer, HTML_scriptAuthen, HTML_scriptInit
+from constantes import HTML_header, HTML_footer, HTML_scriptAuthen, HTML_scriptInit, HTML_scriptCombat
 import json
 import mapIA
 from socket import gethostbyname, gethostname
+from random import randrange
 
 IP = gethostbyname(gethostname())
 
@@ -35,6 +36,7 @@ class BatNav:
         enregistre l'heure de début et procède à une authentification,
         si nécesaire.
         """
+        cherrypy.session["utilise"]=[]
         if "heure" in cherrypy.session:
             pass
         else:
@@ -50,6 +52,7 @@ class BatNav:
         commencer à jouer.
         """
         self.checkSession()
+        cherrypy.session["heure"]=datetime.datetime.now().isoformat();
         result=HTML_header.format(title="Bataille navale")
         result+="""
 <p>Bonjour {nom} !</p>
@@ -110,43 +113,130 @@ L'adresse où l'automate répond en langue JSON est
         ces données sont celles que la page reçoit.
         @return un objet au format JSON, ses champs doivent être explicites.
         """
-        if "coord" in dico:
-            cherrypy.session["coord"]=dico["coord"]
+        if "bateaux" in dico:
+            cherrypy.session["bateaux"]=dico["bateaux"]
+        if "attaque" in dico:
+            cherrypy.session["attaque"]=dico["attaque"]
         result={}
-        result["commentaire"]="Résultat de la page JEU ; les paramètres ne sont pas retravaillés dans cette version de la page"
-        result["debut_session"]=cherrypy.session["heure"]
+        #result["debut_session"]=cherrypy.session["heure"]
         result["nom"]=cherrypy.session["nom"]
         result["idSession"]=cherrypy.session.id
-        result["inputData"]=cherrypy.session["coord"]
+        result["position des bateaux"]=cherrypy.session["bateaux"]
+        if (cherrypy.session["carteIA"]):
+            result["carteIA"]=cherrypy.session["carteIA"]
+        if (cherrypy.session["carteJoueur"]):
+            result["carteJoueur"]=cherrypy.session["carteJoueur"]
+        if "attaque" in dico:
+            cherrypy.session["attaque"]=dico["attaque"]
+            result["attaque"]=cherrypy.session["attaque"]
         return result
 	
     @cherrypy.expose
-    def Init(self,url_retour="/jeu",**dico):
-	    if "coord" in dico:
-		    cherrypy.session["coord"]=dico["coord"]
-		    if url_return:
-			    raise cherrypy.HTTPRedirect(url_retour)
-		    else:
-			    return "Bienvenue %s" %dico["nom"]
-	    else:
-		    result=HTML_header.format(title="Initialisation")
-		    result+=HTML_scriptInit
-		    result+="""
+    def Init(self,**dico):
+        """
+	Cette page permet à l'utilisateur de positionner ses bateaux
+	@param dico dictionnaire contenant toutes les variables
+        """
+        result=HTML_header.format(title="Initialisation")
+        result+=HTML_scriptInit
+        result+="""
 <p></p>
 <p id="bonjour"> Bienvenue {nom}, veuillez enregistrer votre carte de jeu : </p>
 <!-- place pour l'aire de Jeu qui sera initialisée par le programme -->
 <div id="aireDeJeu"> </div>
 <!-- place pour les bateaux, initialisée par le programme -->
 <div id="bateaux"> </div>
+<div id="bateauPlace" style="display:none; background: yellow; left:auto; right:auto; top: 200px; position: absolute; Font-size: 200%;">Le bateau a été placé !</div>
 <div id="confirm">
-    confirmer :
-	<form>
-	<input type="submit" value="enregistrer"/>
-	</form>
+<form action=/combat>
+  <fieldset><legend>confirmation :</legend>    
+	<input type="submit" value="OK" bateau="jeu"/>
+	</fieldset>
+</form> 
 </div>
+<div id="debugZone" style="position: absolute; width: 100%; bottom:0px; margin-bottom: 20px;"></div> <!-- sert à faire des tests -->
 """.format(nom=cherrypy.session["nom"])
-		    result+=HTML_footer
-		    return result
+        result+=HTML_footer
+        return result
+
+
+
+    @cherrypy.expose
+    def combat(self, **dico):
+        """
+        Cette page permet à l'utilisateur de jouer contre l'IA
+        @param dico dictionnaire contenant toutes les variables
+        """
+        carteIA = []
+        cherrypy.session["carteIA"] = carteIA
+        carteIA = mapIA.ordi()
+        x = json.loads(cherrypy.session["bateaux"])
+        carteJoueur = mapIA.init(x)
+        cherrypy.session["carteIA"] = carteIA
+        cherrypy.session["carteJoueur"] = carteJoueur
+        result=HTML_header.format(title="combat")
+        result+=HTML_scriptCombat
+        result+="""
+<div id="texte"> </div>
+<div id="aireDeJeu"> </div>
+<div id="aireDeJeu2"> </div>
+<div id="bateauTouche" style="display:none; background: yellow; left:auto; right:0px; top: 200px; position: absolute; Font-size: 200%;"> </div>
+<div id="bateauTouche2" style="display:none; background: yellow; left:auto; right:auto; top: 200px; position: absolute; Font-size: 200%;"> </div>
+<div id="debugZone" style="position: absolute; width: 100%; bottom:0px; margin-bottom: 20px;"></div> <!-- sert à faire des tests -->
+"""
+        result+=HTML_footer
+        return result
+
+    @cherrypy.tools.json_out()		
+    @cherrypy.expose
+    def arthur(self,**dico):
+        """
+        Cette page sert à renvoyer au format JSON un certain nombre de
+        données organisées en dictionnaire Python.
+        @param dico dictionnaire contenant les variables
+        """
+        infinie = 0
+        result = {}
+        atk = {}
+        test = []
+        utilise = cherrypy.session["utilise"]
+        carteIA = cherrypy.session["carteIA"]
+        carteJoueur = cherrypy.session["carteJoueur"]
+        coup = json.loads(cherrypy.session["attaque"])
+        x = coup["0"][0]["x"]
+        y = coup["0"][0]["y"]
+        banane = carteIA[y-1][x-1]
+        cherrypy.session["banane"]=banane
+        result["banane"]=cherrypy.session["banane"]
+        condition = False
+        while condition == False:
+            test = []
+            atk["x"] = randrange(0,9)
+            atk["y"] = randrange(0,9)
+            atkx = atk["x"]
+            atky = atk["y"]
+            coord = (atkx,atky)
+            test.append(coord)
+            if set(utilise) & set(test):
+                infinie += 1
+                print("recommence ")
+                if infinie >100:
+                    print("break",infinie)
+                    break
+            else :
+                condition = True
+                utilise.append(coord)
+                cherrypy.session["utilise"] = utilise
+                print(cherrypy.session["utilise"])
+        cherrypy.session["atk"]=atk
+        result["atk"]=cherrypy.session["atk"]
+        bananier = carteJoueur[atk["y"]][atk["x"]]
+        cherrypy.session["bananier"] = bananier
+        result["bananier"]=cherrypy.session["bananier"]
+        return result
+        
+		
+		
 		
 	
 

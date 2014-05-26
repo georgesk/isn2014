@@ -46,3 +46,13 @@ HTML_scriptAuthen="""
 </head>
 <body>
 """
+
+HTML_scriptCombat="""
+<script src="static/jquery-ui-1.10.4/js/jquery-1.10.2.js"></script>
+<script src="static/jquery-ui-1.10.4/js/jquery-ui-1.10.4.js"></script>
+<script src="static/jquery-ui-1.10.4/js/jQueryRotate.2.1.js"></script>
+<script src="static/js/Tableau2.js"></script>
+<link rel="stylesheet" type="text/css" href="static/style.css"/>
+</head>
+<body>
+"""

@@ -1,0 +1,89 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Index des espaces de nommage}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Liste des espaces de nommage}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Index hi\IeC {\'e}rarchique}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hi\IeC {\'e}rarchie des classes}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Index des classes}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Liste des classes}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Index des fichiers}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Liste des fichiers}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Documentation des espaces de nommage}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage bateau}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Documentation des fonctions}{9}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}Contre\discretionary {-}{}{}Torpilleur}{9}{subsubsection.5.1.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.2}Croiseur}{9}{subsubsection.5.1.1.2}
+\contentsline {subsubsection}{\numberline {5.1.1.3}map}{9}{subsubsection.5.1.1.3}
+\contentsline {subsubsection}{\numberline {5.1.1.4}originex}{9}{subsubsection.5.1.1.4}
+\contentsline {subsubsection}{\numberline {5.1.1.5}originey}{10}{subsubsection.5.1.1.5}
+\contentsline {subsubsection}{\numberline {5.1.1.6}Porte\discretionary {-}{}{}Avion}{10}{subsubsection.5.1.1.6}
+\contentsline {subsubsection}{\numberline {5.1.1.7}sens}{10}{subsubsection.5.1.1.7}
+\contentsline {subsubsection}{\numberline {5.1.1.8}Sous\discretionary {-}{}{}Marin}{10}{subsubsection.5.1.1.8}
+\contentsline {subsubsection}{\numberline {5.1.1.9}Torpilleur}{10}{subsubsection.5.1.1.9}
+\contentsline {subsection}{\numberline {5.1.2}Documentation des variables}{10}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}Carte\discretionary {-}{}{}Adv}{10}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}Carte\discretionary {-}{}{}Joueur}{10}{subsubsection.5.1.2.2}
+\contentsline {section}{\numberline {5.2}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage constantes}{10}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Documentation des variables}{10}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}H\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}footer}{10}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}H\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}header}{11}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}H\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}script\discretionary {-}{}{}Authen}{11}{subsubsection.5.2.1.3}
+\contentsline {subsubsection}{\numberline {5.2.1.4}H\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}script\discretionary {-}{}{}Combat}{11}{subsubsection.5.2.1.4}
+\contentsline {subsubsection}{\numberline {5.2.1.5}H\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}script\discretionary {-}{}{}Init}{11}{subsubsection.5.2.1.5}
+\contentsline {section}{\numberline {5.3}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage map\discretionary {-}{}{}I\discretionary {-}{}{}A}{12}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Documentation des fonctions}{12}{subsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.1.1}init}{12}{subsubsection.5.3.1.1}
+\contentsline {subsubsection}{\numberline {5.3.1.2}map}{12}{subsubsection.5.3.1.2}
+\contentsline {subsubsection}{\numberline {5.3.1.3}ordi}{12}{subsubsection.5.3.1.3}
+\contentsline {subsubsection}{\numberline {5.3.1.4}utilisateur}{13}{subsubsection.5.3.1.4}
+\contentsline {subsection}{\numberline {5.3.2}Documentation des variables}{13}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}Carte\discretionary {-}{}{}I\discretionary {-}{}{}A}{13}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}Carte\discretionary {-}{}{}Joueur}{13}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}Contre\discretionary {-}{}{}Torpilleur}{13}{subsubsection.5.3.2.3}
+\contentsline {subsubsection}{\numberline {5.3.2.4}Croiseur}{13}{subsubsection.5.3.2.4}
+\contentsline {subsubsection}{\numberline {5.3.2.5}l}{13}{subsubsection.5.3.2.5}
+\contentsline {subsubsection}{\numberline {5.3.2.6}Porte\discretionary {-}{}{}Avion}{13}{subsubsection.5.3.2.6}
+\contentsline {subsubsection}{\numberline {5.3.2.7}Sous\discretionary {-}{}{}Marin}{13}{subsubsection.5.3.2.7}
+\contentsline {subsubsection}{\numberline {5.3.2.8}Torpilleur1}{13}{subsubsection.5.3.2.8}
+\contentsline {subsubsection}{\numberline {5.3.2.9}Torpilleur2}{13}{subsubsection.5.3.2.9}
+\contentsline {subsubsection}{\numberline {5.3.2.10}utilise}{13}{subsubsection.5.3.2.10}
+\contentsline {subsubsection}{\numberline {5.3.2.11}utilise\discretionary {-}{}{}I\discretionary {-}{}{}A}{14}{subsubsection.5.3.2.11}
+\contentsline {section}{\numberline {5.4}R\IeC {\'e}f\IeC {\'e}rence de l'espace de nommage serveur}{14}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Documentation des variables}{14}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}M\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}R}{14}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}I\discretionary {-}{}{}R}{14}{subsubsection.5.4.1.2}
+\contentsline {subsubsection}{\numberline {5.4.1.3}dev\discretionary {-}{}{}\_\discretionary {-}{}{}config}{14}{subsubsection.5.4.1.3}
+\contentsline {subsubsection}{\numberline {5.4.1.4}I\discretionary {-}{}{}P}{14}{subsubsection.5.4.1.4}
+\contentsline {chapter}{\numberline {6}Documentation des classes}{15}{chapter.6}
+\contentsline {section}{\numberline {6.1}R\IeC {\'e}f\IeC {\'e}rence de la classe map\discretionary {-}{}{}I\discretionary {-}{}{}A.\discretionary {-}{}{}bateau}{15}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Description d\IeC {\'e}taill\IeC {\'e}e}{16}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Documentation des constructeurs et destructeur}{16}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{16}{subsubsection.6.1.2.1}
+\contentsline {subsection}{\numberline {6.1.3}Documentation des fonctions membres}{16}{subsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.3.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{16}{subsubsection.6.1.3.1}
+\contentsline {subsection}{\numberline {6.1.4}Documentation des donn\IeC {\'e}es membres}{16}{subsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.4.1}longueur}{16}{subsubsection.6.1.4.1}
+\contentsline {subsubsection}{\numberline {6.1.4.2}name}{16}{subsubsection.6.1.4.2}
+\contentsline {subsubsection}{\numberline {6.1.4.3}originex}{17}{subsubsection.6.1.4.3}
+\contentsline {subsubsection}{\numberline {6.1.4.4}originey}{17}{subsubsection.6.1.4.4}
+\contentsline {subsubsection}{\numberline {6.1.4.5}pv}{17}{subsubsection.6.1.4.5}
+\contentsline {subsubsection}{\numberline {6.1.4.6}sens}{17}{subsubsection.6.1.4.6}
+\contentsline {subsubsection}{\numberline {6.1.4.7}statut}{17}{subsubsection.6.1.4.7}
+\contentsline {section}{\numberline {6.2}R\IeC {\'e}f\IeC {\'e}rence de la classe serveur.\discretionary {-}{}{}Bat\discretionary {-}{}{}Nav}{17}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Description d\IeC {\'e}taill\IeC {\'e}e}{17}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Documentation des fonctions membres}{18}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}arthur}{18}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}check\discretionary {-}{}{}Session}{19}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}combat}{19}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.2.4}index}{19}{subsubsection.6.2.2.4}
+\contentsline {subsubsection}{\numberline {6.2.2.5}Init}{19}{subsubsection.6.2.2.5}
+\contentsline {subsubsection}{\numberline {6.2.2.6}jeu}{19}{subsubsection.6.2.2.6}
+\contentsline {subsubsection}{\numberline {6.2.2.7}login}{20}{subsubsection.6.2.2.7}
+\contentsline {section}{\numberline {6.3}R\IeC {\'e}f\IeC {\'e}rence de la classe object}{20}{section.6.3}
+\contentsline {chapter}{\numberline {7}Documentation des fichiers}{21}{chapter.7}
+\contentsline {section}{\numberline {7.1}R\IeC {\'e}f\IeC {\'e}rence du fichier bateau.\discretionary {-}{}{}py}{21}{section.7.1}
+\contentsline {section}{\numberline {7.2}R\IeC {\'e}f\IeC {\'e}rence du fichier constantes.\discretionary {-}{}{}py}{21}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Description d\IeC {\'e}taill\IeC {\'e}e}{22}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}R\IeC {\'e}f\IeC {\'e}rence du fichier map\discretionary {-}{}{}I\discretionary {-}{}{}A.\discretionary {-}{}{}py}{22}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Description d\IeC {\'e}taill\IeC {\'e}e}{22}{subsection.7.3.1}
+\contentsline {section}{\numberline {7.4}R\IeC {\'e}f\IeC {\'e}rence du fichier serveur.\discretionary {-}{}{}py}{23}{section.7.4}
+\contentsline {subsection}{\numberline {7.4.1}Description d\IeC {\'e}taill\IeC {\'e}e}{23}{subsection.7.4.1}
